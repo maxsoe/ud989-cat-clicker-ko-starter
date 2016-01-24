@@ -82,6 +82,10 @@ var viewModel = function() {
 
   this.currentCat = ko.observable(this.catList()[0]);
 
+// Make the currentCat change when you click on a cat in the list
+  this.setCat = function(clickedCat) {
+    self.currentCat(clickedCat);
+  }
 
 };
 

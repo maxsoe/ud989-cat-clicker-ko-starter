@@ -3,19 +3,22 @@ var Cat = function() {
   this.name = ko.observable('Tabby');
   this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
   this.imgAttribution = ko.observable('https://www.flickr.com/photos/whoever')
-  this.nickNames = ko.observableArray([
-    {name: 'Tabtab'},
-    {name: 'T-bone'},
-    {name: 'Mr T'},
-    {name: 'Tabitha'}
-  ]);
+  this.nickNames = ko.observableArray([{
+    name: 'Tabtab'
+  }, {
+    name: 'T-bone'
+  }, {
+    name: 'Mr T'
+  }, {
+    name: 'Tabitha'
+  }]);
 
-  this.title = ko.computed(function(){
+  this.title = ko.computed(function() {
     var title;
     var clicks = this.clickCount();
     if (clicks < 10) {
       title = 'Newborn';
-    } else if ( clicks < 20) {
+    } else if (clicks < 20) {
       title = 'Twenties';
     } else {
       title = 'Adult';

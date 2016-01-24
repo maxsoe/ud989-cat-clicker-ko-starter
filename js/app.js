@@ -15,13 +15,18 @@ var viewModel = function() {
     this.clickCount(this.clickCount() + 1);
   };
 
-  // this.level = ko.computed(function() {
-  //   if (this.clickCount < 100) {
-  //     this.level('still baby');
-  //     // return this.level();
-  //   }
-  //   return this.level();
-  // }, this);
+  this.title = ko.computed(function(){
+    var title;
+    var clicks = this.clickCount();
+    if (clicks < 10) {
+      title = 'Newborn';
+    } else if ( clicks < 20) {
+      title = 'Twenties';
+    } else {
+      title = 'Adult';
+    }
+    return title;
+  }, this);
 
 
 }

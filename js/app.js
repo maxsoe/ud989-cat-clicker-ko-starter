@@ -1,17 +1,9 @@
-var Cat = function() {
-  this.clickCount = ko.observable(0);
-  this.name = ko.observable('Tabby');
-  this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
-  this.imgAttribution = ko.observable('https://www.flickr.com/photos/whoever')
-  this.nickNames = ko.observableArray([{
-    name: 'Tabtab'
-  }, {
-    name: 'T-bone'
-  }, {
-    name: 'Mr T'
-  }, {
-    name: 'Tabitha'
-  }]);
+var Cat = function(input) {
+  this.clickCount = ko.observable(input.clickCount);
+  this.name = ko.observable(input.name);
+  this.imgSrc = ko.observable(input.imgSrc);
+  this.imgAttribution = ko.observable(input.imgAttribution)
+  this.nickNames = ko.observableArray(input.nickNames);
 
   this.title = ko.computed(function() {
     var title;
@@ -19,7 +11,7 @@ var Cat = function() {
     if (clicks < 10) {
       title = 'Newborn';
     } else if (clicks < 20) {
-      title = 'Twenties';
+      title = 'Teens';
     } else {
       title = 'Adult';
     }
@@ -28,7 +20,13 @@ var Cat = function() {
 };
 
 var viewModel = function() {
-  this.currentCat = ko.observable(new Cat());
+  this.currentCat = ko.observable(new Cat({
+    clickCount:0,
+    name: 'Tabby',
+    imgSrc: 'img/434164568_fea0ad4013_z.jpg',
+    imgAttribution: 'somewhere from flickr',
+    nickNames: ['Tabtab', 'T-bone', 'Mr-T', 'Tabitha']
+  }));
 
   // alternate model
   // var self = this;

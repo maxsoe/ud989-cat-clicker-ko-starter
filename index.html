@@ -13,7 +13,7 @@
         <img src="" alt="cute cat" data-bind="click: $parent.incrementCounter,
         attr: {src: imgSrc}">
         <ul data-bind="foreach: nickNames">
-          <li data-bind="text: name"></li>
+          <li data-bind="text: $data"></li>
         </ul>
 
     </div>
